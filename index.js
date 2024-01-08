@@ -5,7 +5,8 @@ const swaggerUi = require('swagger-ui-express');
 const specs = require("./swagger/swagger");
 const app = express();
 const cors = require("cors")
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const fetchData = require("./helpers/helpers");
 app.use(cors())
 app.use(bodyParser.json())
 app.use(

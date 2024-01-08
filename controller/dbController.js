@@ -1,9 +1,12 @@
-require("dotenv").config()  
+require("dotenv").config()
 const { Sequelize, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const UserModel = require("../models/models");
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const pg = require("pg")
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectModule: pg
+});
 
 
 const User = sequelize.define("users", UserModel)
@@ -21,7 +24,7 @@ const register = async (arg) => {
 }
 const login = async (arg) => {
     const { username, password } = arg;
-    
+
     try {
         await sequelize.sync()
         const user = await User.findOne({ where: { username: username } })

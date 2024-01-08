@@ -18,7 +18,7 @@ const register = async (arg) => {
         User.create({ ...arg, password: hash })
         return { message: "Register successful", ok: true }
     } catch (error) {
-        return { message: `An Error occured ${error} ${arg.password + ' ' + arg.user.name}`, ok: false }
+        return { message: `An Error occured ${error} ${arg.password + ' ' + arg.username}`, ok: false }
     }
 
 }

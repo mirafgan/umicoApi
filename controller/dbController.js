@@ -1,11 +1,9 @@
+require("dotenv").config()  
 const { Sequelize, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const UserModel = require("../models/models");
-const sequelize = new Sequelize("salam", "root", "", {
-    host: "localhost",
-    dialect: "mysql"
-});
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 
 const User = sequelize.define("users", UserModel)

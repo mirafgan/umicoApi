@@ -14,7 +14,7 @@ app.use(
     swaggerUi.serve,
     swaggerUi.setup(specs)
 );
-app.get("/",(req,res)=>res.send("salam"))
+app.get("/salam",(req,res)=>res.send("salam"))
 app.get('/categories', async (req, res) => {
     const { data } = await fetchData("https://umico.az/catalog/v3/market/categories");
     const filter = ['id', "name", "slugged_name", "icons", "child_ids", "ascii_icon"]
@@ -27,5 +27,5 @@ app.get('/categories', async (req, res) => {
     })
     res.send(changeData)
 })
-routes(app)
+// routes(app)
 app.listen(5000)

@@ -13,6 +13,6 @@ app.use(
     swaggerUi.serve,
     swaggerUi.setup(specs)
 );
-
+app.get("/",(req,res)=>res.send("salam"))
 routes(app)
 app.listen(5000)
